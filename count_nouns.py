@@ -3,6 +3,9 @@ import os
 from konlpy.tag import Kkma
 from konlpy.utils import pprint
 from konlpy.tag import Okt
+import nltk
+
+nltk.download('punkt')
 
 nlpy = Okt()
 
@@ -18,6 +21,15 @@ for filename in os.listdir("test"):
                     counter[noun] = 1
                 else:
                     counter[noun] += 1
+
+            if len(counter) == 0:
+                nouns_eng = nltk.word_tokenize(sentences)
+                for noun in nouns_eng:
+                    if noun not in counter:
+                        counter[noun] = 1
+                    else:
+                        counter[noun] += 1
+
             sorter = [(value, key) for key, value in counter.items()]
             sorter.sort()
             sorter.reverse()
@@ -27,4 +39,4 @@ for filename in os.listdir("test"):
                     wf.write("{}, {}\n".format(tag, num))
 
     except Exception as e:
-        print(filename + " cannot open\n\n")
+        print(filename + " cannot open \n\n" + str(e))
