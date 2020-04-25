@@ -22,5 +22,9 @@ for filename in os.listdir("test"):
             sorter.sort()
             sorter.reverse()
             pprint(sorter)
+            with open(os.path.join('output', "count_nouns_" + filename), 'w', encoding="utf-8") as wf:
+                for num, tag in sorter:
+                    wf.write("{}, {}\n".format(tag, num))
+
     except Exception as e:
         print(filename + " cannot open\n\n")
