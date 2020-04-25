@@ -14,7 +14,7 @@ for filename in os.listdir("test"):
         with open(os.path.join("test", filename), 'r', encoding="utf-8") as f:  # open in readonly mode
             print("file :" + filename)
             sentences = f.read()
-            nouns = nlpy.nouns(sentences)
+            nouns = nlpy.morphs(sentences)
             counter = {}
             for noun in nouns:
                 if noun not in counter:
