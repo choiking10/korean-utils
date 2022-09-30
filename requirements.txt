@@ -4,7 +4,7 @@ chardet==3.0.4
 click==7.1.1
 colorama==0.4.3
 idna==2.9
-joblib==0.14.1
+joblib==1.2.0
 JPype1==0.7.3
 konlpy==0.5.2
 lxml==4.5.0
